@@ -1,0 +1,53 @@
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :team_id %><br>
+    <%= f.text_field :team_id %>
+  </div>
+  <div class="field">
+    <%= f.label :home %><br>
+    <%= f.text_area :home %>
+  </div>
+  <div class="field">
+    <%= f.label :away %><br>
+    <%= f.text_area :away %>
+  </div>
+  <div class="field">
+    <%= f.label :home_goals %><br>
+    <%= f.number_field :home_goals %>
+  </div>
+  <div class="field">
+    <%= f.label :home_points %><br>
+    <%= f.number_field :home_points %>
+  </div>
+  <div class="field">
+    <%= f.label :away_goals %><br>
+    <%= f.number_field :away_goals %>
+  </div>
+  <div class="field">
+    <%= f.label :away_points %><br>
+    <%= f.number_field :away_points %>
+  </div>
+  <div class="field">
+    <%= f.label :pitch %><br>
+    <%= f.text_area :pitch %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
