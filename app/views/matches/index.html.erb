@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Users</th>
       <th>Teams</th>
       <th>Home</th>
       <th>Away</th>
@@ -21,8 +20,7 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= match.user %></td>
-        <td><%= match.team %></td>
+        <td><%= match.team.club %></td>
         <td><%= match.home %></td>
         <td><%= match.away %></td>
         <td><%= match.home_goals %></td>
