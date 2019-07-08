@@ -15,10 +15,13 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
+    @clubs = Club.where(county: 1).map(&:club)
   end
 
   # GET /teams/1/edit
   def edit
+    @team = Team.find(params[:id])
+    @clubs = Club.where(county: @team.county).map(&:club)
   end
 
   # POST /teams
@@ -58,6 +61,14 @@ class TeamsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def update_clubs_list
+    @clubs = Club.where(county: params[:county]).map(&:club)
+
+    respond_to do |format|
+      format.js
     end
   end
 

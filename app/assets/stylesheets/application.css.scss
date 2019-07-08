@@ -78,7 +78,7 @@ select#user_role {
 }
 
 .croke {
-  background: image-url('croke_park.jpg') no-repeat center center fixed; 
+  background: image-url('darby.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -92,4 +92,8 @@ select#user_role {
 
 .container {
   padding-top: 50px;
+}
+
+.white {
+  color: white;
 }

@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190129201858) do
+ActiveRecord::Schema.define(version: 20190618151219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clubs", force: :cascade do |t|
+    t.integer  "county_id"
+    t.text     "level"
+    t.text     "county"
+    t.text     "club"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "clubs", ["county_id"], name: "index_clubs_on_county_id", using: :btree
+
+  create_table "counties", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "matches", force: :cascade do |t|
     t.integer  "user_id"
@@ -68,6 +85,7 @@ ActiveRecord::Schema.define(version: 20190129201858) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "clubs", "counties"
   add_foreign_key "matches", "teams"
   add_foreign_key "matches", "users"
   add_foreign_key "teams", "users"

@@ -27,5 +27,17 @@ module Gatabase
                        "Fermanagh", "Galway", "Kerry", "Kildare", "Kilkenny", "Laois", "Leitrim", "Limerick", "Longford",
                        "Louth", "Mayo", "Meath", "Monaghan", "Offaly", "Roscommon", "Sligo", "Tipperary", "Tyrone",
                        "Waterford", "Westmeath", "Wexford", "Wicklow"]
+
+    config.antrim = ["All Saints", "Ardoyne Kickhams", "Cardinal O'Donnells", "Ballymoney", "Carey Faughs",
+                     "Clooney Gaels HC", "Con Magees", "Cushendun Emmets", "Creggan Kickhams",
+                     "Dunloy Cuchullains", "Erin\'s Own", "Éire Óg", "Gort na Móna", "Glen Rovers", "Glenshesk",
+                     "Henry Joy McCracken\'s", "John Mitchel\'s", "Lagmore Gaels", "Lámh Dhearg", "Laochra Loch Lao",
+                     "Latharna Óg", "Loch Mór Dál gCais", "McQuillan\'s", "Michael Davitt\'s", "Michael Dwyer\'s",
+                     "Na Fuiseoige", "Naomh Eoin", "Naomh Mhuire", "O'Donovan Rossa", "Oisín Glenariff",
+                     "Patrick Pearse\'s", "Patrick Sarsfields", "Roger Casement\'s", "Ruairí Óg", "Sean Martin\'s",
+                     "Sean McDermott\'s", "Sean Stinson\'s", "Loughgiel Shamrocks", "Shane O'Neill\'s", "St Agnes'",
+                     "St Brigid\'s", "St Comgall\'s", "St Enda\'s", "St Ergnat\'s", "St Gall\'s", "St James\'", "St John\'s",
+                     "St Joseph\'s", "St Malachy\'s", "St Mary\'s", "St Mary's GFC", "St Mary\'s", "St Paul\'s", "St Patrick\'s",
+                     "St Teresa\'s", "Tir-na-nÓg"]
   end
 end

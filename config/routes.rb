@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :matches
-  resources :teams
+  resources :teams do
+    member do
+      get 'update_clubs_list', as: 'update_clubs_list'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -20,11 +20,11 @@
   </div>
   <div class="field">
     <%= f.label :county %><br>
-    <%= f.text_area :county %>
+    <%= f.select :county, options_for_select(Rails.application.config.counties, {}) %>
   </div>
   <div class="field">
     <%= f.label :club %><br>
-    <%= f.text_area :club %>
+    <%= f.select :club, options_for_select(@clubs, {}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  level: MyText
+  county: MyText
+  club: MyText
+
+two:
+  level: MyText
+  county: MyText
+  club: MyText
