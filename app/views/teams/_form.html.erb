@@ -20,11 +20,12 @@
   </div>
   <div class="field">
     <%= f.label :county %><br>
-    <%= f.select :county, options_for_select(County.all.map(&:name), {}) %>
+    <%= f.select :county, options_for_select(County.all.collect { |county|
+    [county.name, county.name] }, 1), {} %>
   </div>
   <div class="field">
     <%= f.label :club %><br>
-    <%= f.select :club, options_for_select(@clubs, {}) %>
+    <%= f.select :club, options_for_select(@clubs.collect { |club| [club.club, club.id] }, 0), {}, { id: 'clubs_select' } %>
   </div>
   <div class="actions">
     <%= f.submit %>

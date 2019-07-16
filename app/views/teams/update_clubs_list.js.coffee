@@ -1,2 +1,2 @@
-$("#team_club").empty()
+$("#clubs_select").empty()
   .append("<%= escape_javascript(render(:partial => @clubs)) %>")

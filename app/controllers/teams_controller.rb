@@ -15,13 +15,13 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
-    @clubs = Club.where(county: 1).map(&:club)
+    @clubs = Club.where(county: 1).order(:club)
   end
 
   # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
-    @clubs = Club.where(county: @team.county).map(&:club)
+    @clubs = Club.where(county: @team.county).order(:club)
   end
 
   # POST /teams
@@ -65,8 +65,9 @@ class TeamsController < ApplicationController
   end
 
   def update_clubs_list
-    @clubs = Club.where(county: params[:county]).map(&:club)
-
+    county = County.where(name: params[:county]).first
+    @clubs = Club.where(county_id: county.id).order(:club)
+    puts "@clubs: #{@clubs.inspect}"
     respond_to do |format|
       format.js
     end
