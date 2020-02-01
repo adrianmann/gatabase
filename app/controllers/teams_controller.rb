@@ -1,31 +1,24 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
-  # GET /teams
-  # GET /teams.json
   def index
     @teams = Team.where(user_id: current_user.id)
   end
 
-  # GET /teams/1
-  # GET /teams/1.json
   def show
+    @clubs = Club.where(county: params[:county]).order(:club)
   end
 
-  # GET /teams/new
   def new
     @team = Team.new
     @clubs = Club.where(county: 1).order(:club)
   end
 
-  # GET /teams/1/edit
   def edit
-    @team = Team.find(params[:id])
-    @clubs = Club.where(county: @team.county).order(:club)
+    @county = County.where(name: @team.county).first
+    @clubs = Club.where(county: @county.id).order(:club)
   end
 
-  # POST /teams
-  # POST /teams.json
   def create
     @team = Team.new(team_params)
 
@@ -40,8 +33,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /teams/1
-  # PATCH/PUT /teams/1.json
   def update
     respond_to do |format|
       if @team.update(team_params)
@@ -54,12 +45,10 @@ class TeamsController < ApplicationController
     end
   end
 
-  # DELETE /teams/1
-  # DELETE /teams/1.json
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      format.html { redirect_to teams_url, notice: 'Team was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -67,7 +56,6 @@ class TeamsController < ApplicationController
   def update_clubs_list
     county = County.where(name: params[:county]).first
     @clubs = Club.where(county_id: county.id).order(:club)
-    puts "@clubs: #{@clubs.inspect}"
     respond_to do |format|
       format.js
     end

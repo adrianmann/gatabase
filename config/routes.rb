@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :matches
   resources :teams do
+    collection do
+      get 'update_clubs_list', as: 'update_clubs_list'
+    end
     member do
       get 'update_clubs_list', as: 'update_clubs_list'
     end

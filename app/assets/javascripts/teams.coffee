@@ -3,15 +3,15 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(document).on 'change', '#team_county', (evt) ->
-    $.ajax
-      url: '1/update_clubs_list'
+  $(document).on 'change', '#counties_select', (evt) ->
+    $.ajax 'update_clubs_list',
       type: 'GET'
       dataType: 'script'
       data: {
-        county: $("#team_county option:selected").val()
+        county: $("#counties_select option:selected").val()
       }
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
+        console.log("AJAX Error: #{errorThrown}")
       success: (data, textStatus, jqXHR) ->
         console.log("Dynamic country select OK!")
